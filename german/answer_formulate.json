@@ -1,0 +1,38 @@
+{
+    "name": "answer_formulate",
+    "instruction": "Answer the question using the information from the given context. Output verdict as '1' if answer is present '-1' if answer is not present in the context.",
+    "output_format_instruction": "The output should be a well-formatted JSON instance that conforms to the JSON schema below.\n\nAs an example, for the schema {\"properties\": {\"foo\": {\"title\": \"Foo\", \"description\": \"a list of strings\", \"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"foo\"]}\nthe object {\"foo\": [\"bar\", \"baz\"]} is a well-formatted instance of the schema. The object {\"properties\": {\"foo\": [\"bar\", \"baz\"]}} is not well-formatted.\n\nHere is the output JSON schema:\n```\n{\"type\": \"object\", \"properties\": {\"answer\": {\"title\": \"Answer\", \"type\": \"string\"}, \"verdict\": {\"title\": \"Verdict\", \"type\": \"integer\"}}, \"required\": [\"answer\", \"verdict\"]}\n```\n\nDo not return any preamble or explanations, return only a pure JSON string surrounded by triple backticks (```).",
+    "examples": [
+        {
+            "context": "Klimawandel wird ma\u00dfgeblich durch menschliche Aktivit\u00e4ten beeinflusst, insbesondere durch die Emission von Treibhausgasen aus der Verbrennung fossiler Brennstoffe. Die erh\u00f6hte Konzentration von Treibhausgasen in der Atmosph\u00e4re f\u00e4ngt mehr W\u00e4rme ein, was zu globaler Erw\u00e4rmung und Ver\u00e4nderungen in den Wettermustern f\u00fchrt.",
+            "question": "Wie tragen menschliche Aktivit\u00e4ten zum Klimawandel bei?",
+            "answer": {
+                "answer": "Menschliche Aktivit\u00e4ten tragen haupts\u00e4chlich durch die Emission von Treibhausgasen aus der Verbrennung fossiler Brennstoffe zum Klimawandel bei. Diese Emissionen erh\u00f6hen die Konzentration von Treibhausgasen in der Atmosph\u00e4re, was mehr W\u00e4rme einf\u00e4ngt und zu globaler Erw\u00e4rmung und ver\u00e4nderten Wettermustern f\u00fchrt.",
+                "verdict": 1
+            }
+        },
+        {
+            "context": "Das Konzept der k\u00fcnstlichen Intelligenz (KI) hat sich im Laufe der Zeit weiterentwickelt, bezieht sich aber grunds\u00e4tzlich auf Maschinen, die entworfen wurden, um menschliche kognitive Funktionen nachzuahmen. KI kann lernen, schlussfolgern, wahrnehmen und in einigen F\u00e4llen wie Menschen reagieren, was sie in Bereichen von der Gesundheitsversorgung bis hin zu autonomen Fahrzeugen entscheidend macht.",
+            "question": "Was sind die wichtigsten F\u00e4higkeiten der k\u00fcnstlichen Intelligenz?",
+            "answer": {
+                "answer": "K\u00fcnstliche Intelligenz ist darauf ausgelegt, menschliche kognitive Funktionen nachzuahmen, wobei wichtige F\u00e4higkeiten das Lernen, das Schlussfolgern, die Wahrnehmung und das Reagieren auf die Umgebung in einer Weise \u00e4hnlich wie bei Menschen sind. Diese F\u00e4higkeiten machen KI in verschiedenen Bereichen, einschlie\u00dflich Gesundheitswesen und autonomes Fahren, entscheidend.",
+                "verdict": 1
+            }
+        },
+        {
+            "context": "Der Roman \"Stolz und Vorurteil\" von Jane Austen dreht sich um die Figur Elizabeth Bennet und ihre Familie. Die Geschichte spielt im 19. Jahrhundert im l\u00e4ndlichen England und behandelt Themen wie Ehe, Moral und Vorurteile.",
+            "question": "In welchem Jahr wurde 'Stolz und Vorurteil' ver\u00f6ffentlicht?",
+            "answer": {
+                "answer": "Die Antwort auf die gestellte Frage ist nicht im Kontext vorhanden",
+                "verdict": -1
+            }
+        }
+    ],
+    "input_keys": [
+        "context",
+        "question"
+    ],
+    "output_key": "answer",
+    "output_type": "json",
+    "language": "german"
+}

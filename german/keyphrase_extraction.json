@@ -1,0 +1,21 @@
+{
+    "name": "keyphrase_extraction",
+    "instruction": "Extract the top 3 to 5 keyphrases from the provided text, focusing on the most significant and distinctive aspects. ",
+    "output_format_instruction": "",
+    "examples": [
+        {
+            "text": "Ein Schwarzes Loch ist eine Region des Raum-Zeit-Kontinuums, in der die Gravitation so stark ist, dass nichts, einschlie\u00dflich Licht und anderer elektromagnetischer Wellen, genug Energie hat, um ihr zu entkommen. Die Allgemeine Relativit\u00e4tstheorie sagt voraus, dass eine ausreichend kompakte Masse den Raum so verformen kann, dass ein Schwarzes Loch entsteht.",
+            "output": "{\"keyphrases\": [\"Schwarzes Loch\", \"Region des Raum-Zeit-Kontinuums\", \"Starke Gravitation\", \"Licht und elektromagnetische Wellen\", \"Allgemeine Relativit\u00e4tstheorie\"]}"
+        },
+        {
+            "text": "Die Chinesische Mauer ist eine antike Serie von Mauern und Befestigungen im Norden Chinas, die vor etwa 500 Jahren erbaut wurden. Diese immense Mauer erstreckt sich \u00fcber 13.000 Meilen und ist ein Zeugnis f\u00fcr die F\u00e4higkeiten und Ausdauer der antiken chinesischen Ingenieure.",
+            "output": "{\"keyphrases\": [\"Chinesische Mauer\", \"Antike Befestigungen\", \"N\u00f6rdliches China\"]}"
+        }
+    ],
+    "input_keys": [
+        "text"
+    ],
+    "output_key": "output",
+    "output_type": "json",
+    "language": "german"
+}

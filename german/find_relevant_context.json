@@ -1,0 +1,34 @@
+{
+    "name": "find_relevant_context",
+    "instruction": "Given a question and set of contexts, find the most relevant contexts to answer the question.",
+    "output_format_instruction": "",
+    "examples": [
+        {
+            "question": "Was ist die Hauptstadt von Frankreich?",
+            "contexts": "['1. Frankreich ist ein Land in Westeuropa. Es hat mehrere St\u00e4dte, darunter Paris, Lyon und Marseille. Paris ist nicht nur f\u00fcr seine kulturellen Wahrzeichen wie den Eiffelturm und das Louvre-Museum bekannt, sondern auch als Verwaltungszentrum.', '2. Die Hauptstadt von Frankreich ist Paris. Es ist auch die bev\u00f6lkerungsreichste Stadt in Frankreich, mit einer Bev\u00f6lkerung von \u00fcber 2 Millionen Menschen. Paris ist bekannt f\u00fcr seine kulturellen Wahrzeichen wie den Eiffelturm und das Louvre-Museum.', '3. Paris ist die Hauptstadt von Frankreich. Es ist auch die bev\u00f6lkerungsreichste Stadt in Frankreich, mit einer Bev\u00f6lkerung von \u00fcber 2 Millionen Menschen. Paris ist bekannt f\u00fcr seine kulturellen Wahrzeichen wie den Eiffelturm und das Louvre-Museum.']",
+            "output": {
+                "relevant_contexts": [
+                    1,
+                    2
+                ]
+            }
+        },
+        {
+            "question": "Wie wirkt sich Koffein auf den K\u00f6rper aus und was sind seine h\u00e4ufigsten Quellen?",
+            "contexts": "['1. Koffein ist ein zentrales Nervensystemstimulans. Es kann vor\u00fcbergehend Schl\u00e4frigkeit abwehren und die Wachsamkeit wiederherstellen. Es wirkt haupts\u00e4chlich auf das Gehirn, wo es die Funktion von Neurotransmittern ver\u00e4ndert.', '2. Regelm\u00e4\u00dfige k\u00f6rperliche Aktivit\u00e4t ist f\u00fcr die Aufrechterhaltung der Gesundheit unerl\u00e4sslich. Sie kann beim Gewichtsmanagement helfen, Gesundheitszust\u00e4nde bek\u00e4mpfen, Energie steigern und zu einem besseren Schlaf beitragen.', '3. Zu den h\u00e4ufigsten Quellen von Koffein geh\u00f6ren Kaffee, Tee, Cola und Energydrinks. Diese Getr\u00e4nke werden weltweit konsumiert und sind bekannt daf\u00fcr, einen schnellen Energieschub zu liefern.']",
+            "output": {
+                "relevant_contexts": [
+                    1,
+                    2
+                ]
+            }
+        }
+    ],
+    "input_keys": [
+        "question",
+        "contexts"
+    ],
+    "output_key": "output",
+    "output_type": "json",
+    "language": "german"
+}

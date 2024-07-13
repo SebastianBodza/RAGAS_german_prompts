@@ -1,0 +1,48 @@
+{
+    "name": "filter_question",
+    "instruction": "\nAsses the given question for clarity and answerability given enough domain knowledge, consider the following criteria:\n1.Independence: Can the question be understood and answered without needing additional context or access to external references not provided within the question itself? Questions should be self-contained, meaning they do not rely on specific documents, tables, or prior knowledge not shared within the question.\n2.Clear Intent: Is it clear what type of answer or information the question seeks? The question should convey its purpose without ambiguity, allowing for a direct and relevant response.\nBased on these criteria, assign a verdict of \"1\" if a question is specific, independent, and has a clear intent, making it understandable and answerable based on the details provided. Assign \"0\" if it fails to meet one or more of these criteria due to vagueness, reliance on external references, or ambiguity in intent.\nProvide feedback and a verdict in JSON format, including suggestions for improvement if the question is deemed unclear. Highlight aspects of the question that contribute to its clarity or lack thereof, and offer advice on how it could be reframed or detailed for better understanding and answerability.\n",
+    "output_format_instruction": "The output should be a well-formatted JSON instance that conforms to the JSON schema below.\n\nAs an example, for the schema {\"properties\": {\"foo\": {\"title\": \"Foo\", \"description\": \"a list of strings\", \"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"foo\"]}\nthe object {\"foo\": [\"bar\", \"baz\"]} is a well-formatted instance of the schema. The object {\"properties\": {\"foo\": [\"bar\", \"baz\"]}} is not well-formatted.\n\nHere is the output JSON schema:\n```\n{\"type\": \"object\", \"properties\": {\"feedback\": {\"title\": \"Feedback\", \"type\": \"string\"}, \"verdict\": {\"title\": \"Verdict\", \"type\": \"integer\"}}, \"required\": [\"feedback\", \"verdict\"]}\n```\n\nDo not return any preamble or explanations, return only a pure JSON string surrounded by triple backticks (```).",
+    "examples": [
+        {
+            "question": "Was ist die Entdeckung \u00fcber den Weltraum?",
+            "output": {
+                "feedback": "Die Frage ist zu vage und breit gefasst und fragt nach einer 'Entdeckung \u00fcber den Weltraum', ohne einen bestimmten Aspekt, Zeitrahmen oder Kontext von Interesse anzugeben. Dies k\u00f6nnte sich auf eine Vielzahl von Themen beziehen, von der Entdeckung neuer Himmelsk\u00f6rper bis hin zu Fortschritten in der Raumfahrttechnologie. Um Klarheit und Beantwortbarkeit zu verbessern, k\u00f6nnte die Frage den Typ der Entdeckung (z.B. astronomisch, technologisch), den Zeitrahmen (z.B. k\u00fcrzlich, historisch) oder den Kontext (z.B. innerhalb einer bestimmten Forschungsstudie oder Weltraummission) spezifizieren.",
+                "verdict": 0
+            }
+        },
+        {
+            "question": "Wie schneidet ALMA-13B-R im Vergleich zu anderen \u00dcbersetzungsmodellen in der WMT'23-Studie ab, basierend auf den Ergebnissen in Kontext1 und Kontext2?",
+            "output": {
+                "feedback": "Diese Frage verlangt einen Vergleich der Leistung des ALMA-13B-R-Modells mit anderen \u00dcbersetzungsmodellen innerhalb der WMT'23-Studie, wobei speziell auf die Ergebnisse in 'context1' und 'context2' Bezug genommen wird. W\u00e4hrend sie das interessierende Modell (ALMA-13B-R) und die Studie (WMT'23) klar spezifiziert, setzt sie den Zugang zu und das Verst\u00e4ndnis von 'context1' und 'context2' voraus, ohne zu erkl\u00e4ren, was diese Kontexte beinhalten. Dies macht die Frage f\u00fcr diejenigen unklar, die mit der WMT'23-Studie oder diesen spezifischen Kontexten nicht vertraut sind. Um die Klarheit und Beantwortbarkeit f\u00fcr ein breiteres Publikum zu verbessern, k\u00f6nnte die Frage davon profitieren, 'context1' und 'context2' zu definieren oder zu beschreiben oder die in diesen Kontexten verwendeten Vergleichskriterien zu erkl\u00e4ren.",
+                "verdict": 0
+            }
+        },
+        {
+            "question": "Wie vergleichen sich KIWI-XXL und XCOMET mit den Goldstandard-Referenzen in Tabelle 1 in Bezug auf Bewertungsergebnisse, Leistung des \u00dcbersetzungsmodells und Erfolgsrate beim \u00dcbertreffen der Referenzen?",
+            "output": {
+                "feedback": "Die Frage fordert einen Vergleich zwischen den KIWI-XXL- und XCOMET-Modellen und den Goldstandard-Referenzen in 'Tabelle 1', wobei der Schwerpunkt auf Bewertungsergebnissen, der Leistung des \u00dcbersetzungsmodells und den Erfolgsraten beim \u00dcbertreffen der Referenzen liegt. Sie spezifiziert die Modelle und Kriterien f\u00fcr den Vergleich, wodurch die Absicht klar wird. Die Frage geht jedoch davon aus, dass 'Tabelle 1' zug\u00e4nglich ist, ohne deren Inhalt oder Kontext bereitzustellen, was f\u00fcr diejenigen unklar ist, die keinen direkten Zugang zum Quellmaterial haben. Um klarer und f\u00fcr ein allgemeines Publikum besser beantwortbar zu sein, k\u00f6nnte die Frage eine kurze Beschreibung des Inhalts oder der wichtigsten Ergebnisse von 'Tabelle 1' enthalten oder alternativ die Frage so formulieren, dass sie nicht auf spezifische, unver\u00f6ffentlichte Dokumente angewiesen ist.",
+                "verdict": 0
+            }
+        },
+        {
+            "question": "Was ist die Konfiguration des UL2-Trainingsziels in OpenMoE und warum ist es eine bessere Wahl f\u00fcr das Vortraining?",
+            "output": {
+                "feedback": "Die Frage fragt nach der Konfiguration des UL2-Trainingsziels im OpenMoE-Framework und der Begr\u00fcndung f\u00fcr seine Eignung f\u00fcr das Pre-Training. Es ist klar, dass das Thema von Interesse (UL2-Trainingsziel, OpenMoE) spezifiziert wird und detaillierte Informationen sowohl zur Konfiguration als auch zu den Gr\u00fcnden f\u00fcr seine Wirksamkeit im Pre-Training gesucht werden. Die Frage k\u00f6nnte jedoch f\u00fcr diejenigen schwierig sein, die mit der spezifischen Terminologie oder dem Kontext von OpenMoE und UL2 nicht vertraut sind. F\u00fcr eine breitere Klarheit und Beantwortbarkeit w\u00e4re es hilfreich, wenn die Frage eine kurze Erkl\u00e4rung oder einen Kontext zu OpenMoE und dem UL2-Trainingsziel enthalten w\u00fcrde oder die Aspekte der Pre-Training-Wirksamkeit, auf die sie sich bezieht (z.B. Effizienz, Genauigkeit, Generalisierung), kl\u00e4ren w\u00fcrde.",
+                "verdict": 1
+            }
+        },
+        {
+            "question": "Was ist die detaillierte Konfiguration des UL2-Trainingsziels in OpenMoE, basierend auf dem bereitgestellten Kontext?",
+            "output": {
+                "feedback": "Die Frage sucht nach detaillierten Informationen zur Konfiguration des UL2-Trainingsziels im OpenMoE-Framework und erw\u00e4hnt 'den bereitgestellten Kontext', ohne diesen Kontext tats\u00e4chlich in der Anfrage einzuschlie\u00dfen oder zu beschreiben. Dies macht die Frage f\u00fcr diejenigen unklar, die keinen Zugang zu dem nicht spezifizierten Kontext haben. Damit die Frage klar und beantwortbar ist, muss sie entweder den relevanten Kontext direkt in die Frage einbeziehen oder so formuliert sein, dass keine externen Informationen erforderlich sind. Die Angabe der spezifischen Aspekte der Konfiguration von Interesse (z.B. Verlustfunktionen, Datenaugmentationstechniken) k\u00f6nnte auch dazu beitragen, die Anfrage zu kl\u00e4ren.",
+                "verdict": 0
+            }
+        }
+    ],
+    "input_keys": [
+        "question"
+    ],
+    "output_key": "output",
+    "output_type": "json",
+    "language": "german"
+}

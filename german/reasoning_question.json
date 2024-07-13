@@ -1,0 +1,24 @@
+{
+    "name": "reasoning_question",
+    "instruction": "Complicate the given question by rewriting question into a multi-hop reasoning question based on the provided context.\n    Answering the question should require the reader to make multiple logical connections or inferences using the information available in given context.\n    Rules to follow when rewriting question:\n    1. Ensure that the rewritten question can be answered entirely from the information present in the contexts.\n    2. Do not frame questions that contains more than 15 words. Use abbreviation wherever possible.\n    3. Make sure the question is clear and unambiguous.\n    4. phrases like 'based on the provided context','according to the context',etc are not allowed to appear in the question.",
+    "output_format_instruction": "",
+    "examples": [
+        {
+            "question": "Was ist die Hauptstadt von Frankreich?",
+            "context": "Frankreich ist ein Land in Westeuropa. Es hat mehrere St\u00e4dte, darunter Paris, Lyon und Marseille. Paris ist nicht nur f\u00fcr seine kulturellen Wahrzeichen wie den Eiffelturm und das Louvre-Museum bekannt, sondern auch als Verwaltungszentrum.",
+            "output": "Welche Stadt verbindet den Eiffelturm und das Verwaltungszentrum und ist beides?"
+        },
+        {
+            "question": "Was macht die append() Methode in Python?",
+            "context": "In Python werden Listen verwendet, um mehrere Elemente in einer einzigen Variablen zu speichern. Listen sind einer von 4 integrierten Datentypen, die verwendet werden, um Sammlungen von Daten zu speichern. Die append() Methode f\u00fcgt ein einzelnes Element am Ende einer Liste hinzu.",
+            "output": "Wenn eine Liste eine variable Sammlung darstellt, welche Methode erweitert sie um ein Element?"
+        }
+    ],
+    "input_keys": [
+        "question",
+        "context"
+    ],
+    "output_key": "output",
+    "output_type": "str",
+    "language": "german"
+}

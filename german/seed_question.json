@@ -1,0 +1,29 @@
+{
+    "name": "seed_question",
+    "instruction": "Generate a question that can be fully answered from given context. The question should be formed using topic",
+    "output_format_instruction": "",
+    "examples": [
+        {
+            "context": "Die Photosynthese bei Pflanzen beinhaltet die Umwandlung von Lichtenergie in chemische Energie, wobei Chlorophyll und andere Pigmente verwendet werden, um Licht zu absorbieren. Dieser Prozess ist entscheidend f\u00fcr das Pflanzenwachstum und die Produktion von Sauerstoff.",
+            "keyphrase": "Photosynthese",
+            "question": "Welche Rolle spielt die Photosynthese beim Pflanzenwachstum?"
+        },
+        {
+            "context": "Die Industrielle Revolution, die im 18. Jahrhundert begann, markierte einen bedeutenden Wendepunkt in der Geschichte, da sie zur Entwicklung von Fabriken und Urbanisierung f\u00fchrte.",
+            "keyphrase": "Industrielle Revolution",
+            "question": "Wie markierte die Industrielle Revolution einen bedeutenden Wendepunkt in der Geschichte?"
+        },
+        {
+            "context": "Der Verdunstungsprozess spielt eine entscheidende Rolle im Wasserkreislauf, indem er Wasser von fl\u00fcssig zu Dampf umwandelt und es erm\u00f6glicht, in die Atmosph\u00e4re aufzusteigen.",
+            "keyphrase": "Verdunstung",
+            "question": "Warum ist die Verdunstung im Wasserkreislauf wichtig?"
+        }
+    ],
+    "input_keys": [
+        "context",
+        "keyphrase"
+    ],
+    "output_key": "question",
+    "output_type": "str",
+    "language": "german"
+}

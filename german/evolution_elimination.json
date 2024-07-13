@@ -1,0 +1,38 @@
+{
+    "name": "evolution_elimination",
+    "instruction": "Check if the given two questions are equal based on following requirements:\n    1. They have same constraints and requirements.\n    2. They have same depth and breadth of the inquiry.\n    Output verdict as 1 if they are equal and 0 if they are not",
+    "output_format_instruction": "The output should be a well-formatted JSON instance that conforms to the JSON schema below.\n\nAs an example, for the schema {\"properties\": {\"foo\": {\"title\": \"Foo\", \"description\": \"a list of strings\", \"type\": \"array\", \"items\": {\"type\": \"string\"}}}, \"required\": [\"foo\"]}\nthe object {\"foo\": [\"bar\", \"baz\"]} is a well-formatted instance of the schema. The object {\"properties\": {\"foo\": [\"bar\", \"baz\"]}} is not well-formatted.\n\nHere is the output JSON schema:\n```\n{\"type\": \"object\", \"properties\": {\"reason\": {\"title\": \"Reason\", \"type\": \"string\"}, \"verdict\": {\"title\": \"Verdict\", \"type\": \"integer\"}}, \"required\": [\"reason\", \"verdict\"]}\n```\n\nDo not return any preamble or explanations, return only a pure JSON string surrounded by triple backticks (```).",
+    "examples": [
+        {
+            "question1": "Was sind die Hauptursachen des Klimawandels?",
+            "question2": "Welche Faktoren tragen zur globalen Erw\u00e4rmung bei?",
+            "output": {
+                "reason": "W\u00e4hrend sich beide Fragen mit Umweltproblemen befassen, umfasst 'Klimawandel' umfassendere Ver\u00e4nderungen als 'globale Erw\u00e4rmung', was zu unterschiedlichen Tiefen der Untersuchung f\u00fchrt.",
+                "verdict": 0
+            }
+        },
+        {
+            "question1": "Wie funktioniert die Photosynthese in Pflanzen?",
+            "question2": "K\u00f6nnen Sie den Prozess der Photosynthese bei Pflanzen erkl\u00e4ren?",
+            "output": {
+                "reason": "Beide Fragen verlangen eine Erkl\u00e4rung des Photosyntheseprozesses in Pflanzen und teilen die gleiche Tiefe, Breite und Anforderungen an die Antwort.",
+                "verdict": 1
+            }
+        },
+        {
+            "question1": "Was sind die gesundheitlichen Vorteile regelm\u00e4\u00dfiger Bewegung?",
+            "question2": "K\u00f6nnen Sie die Vorteile regelm\u00e4\u00dfiger Bewegung f\u00fcr die Gesundheit auflisten?",
+            "output": {
+                "reason": "Beide Fragen suchen nach Informationen \u00fcber die positiven Auswirkungen regelm\u00e4\u00dfiger Bewegung auf die Gesundheit. Sie erfordern ein \u00e4hnliches Ma\u00df an Detailgenauigkeit bei der Auflistung der gesundheitlichen Vorteile.",
+                "verdict": 1
+            }
+        }
+    ],
+    "input_keys": [
+        "question1",
+        "question2"
+    ],
+    "output_key": "output",
+    "output_type": "json",
+    "language": "german"
+}

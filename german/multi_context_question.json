@@ -1,0 +1,27 @@
+{
+    "name": "multi_context_question",
+    "instruction": "\n    The task is to rewrite and complicate the given question in a way that answering it requires information derived from both context1 and context2. \n    Follow the rules given below while rewriting the question.\n        1. The rewritten question should not be very long. Use abbreviation wherever possible.\n        2. The rewritten question must be reasonable and must be understood and responded by humans.\n        3. The rewritten question must be fully answerable from information present in context1 and context2. \n        4. Read and understand both contexts and rewrite the question so that answering requires insight from both context1 and context2.\n        5. phrases like 'based on the provided context','according to the context?',etc are not allowed to appear in the question.",
+    "output_format_instruction": "",
+    "examples": [
+        {
+            "question": "Welcher Prozess macht Pflanzen gr\u00fcn?",
+            "context1": "Chlorophyll ist das Pigment, das Pflanzen ihre gr\u00fcne Farbe verleiht und ihnen hilft, Photosynthese zu betreiben",
+            "context2": "Die Photosynthese in Pflanzen findet in der Regel in den Bl\u00e4ttern statt, wo die Chloroplasten konzentriert sind.",
+            "output": "In welchen Pflanzenteilen erm\u00f6glicht das Pigment, das f\u00fcr ihre Gr\u00fcnf\u00e4rbung verantwortlich ist, die Energieproduktion?"
+        },
+        {
+            "question": "Wie berechnen Sie die Fl\u00e4che eines Rechtecks?",
+            "context1": "Der Fl\u00e4cheninhalt einer Form wird basierend auf den Abmessungen der Form berechnet. Bei Rechtecken bedeutet dies, die L\u00e4nge und Breite zu multiplizieren.",
+            "context2": "Rechtecke haben vier Seiten, wobei gegen\u00fcberliegende Seiten gleich lang sind. Sie sind eine Art Viereck.",
+            "output": "Welche Multiplikation ergibt die Fl\u00e4che eines Rechtecks?"
+        }
+    ],
+    "input_keys": [
+        "question",
+        "context1",
+        "context2"
+    ],
+    "output_key": "output",
+    "output_type": "str",
+    "language": "german"
+}
